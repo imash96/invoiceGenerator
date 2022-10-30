@@ -1,0 +1,122 @@
+.page {
+    overflow: hidden;
+    background: white;
+    display: block;
+    margin: 0 auto;
+    width: 21cm;
+    height: 29.7cm;
+}
+
+.invoiceType {
+    font-family: "Amazon Ember Display", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.invoiceFor {
+    font-family: "Amazon Ember", sans-serif;
+    text-align: right;
+    padding-right: 6px;
+    font-size: 0.85em;
+    font-style: italic;
+}
+
+.shipTo {
+    font-family: "Amazon Ember V2", sans-serif;
+    font-weight: 600;
+    font-size: 1em;
+    text-align: center;
+    background: #f0f0f0;
+}
+
+.borderLeft {
+    border-right: 1px solid black;
+    padding-left: 2px;
+}
+
+.addressAlign {
+    padding: 2px 0px 0px 4px;
+    text-align: left;
+    vertical-align: top;
+    white-space: normal;
+}
+
+td {
+    font-style: normal;
+    font-size: 0.92em;
+    font-family: 'AMAZON EMBER V2', sans-serif;
+    white-space: nowrap;
+}
+
+.headerImg {
+    margin-top: 1em;
+    width: 100%;
+    height: auto;
+    display: block;
+    text-align: center;
+}
+
+.tableStyle {
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+}
+
+.tableThead {
+    text-align: center;
+    vertical-align: middle;
+    white-space: normal;
+}
+
+.tableTbody {
+    text-align: center;
+    vertical-align: top;
+    white-space: normal;
+    font-size: 1.2em;
+}
+
+.totalAmount {
+    text-align: center;
+}
+
+.desc {
+    text-align: left;
+}
+
+.charges {
+    text-align: left;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.amount {
+    text-align: right;
+}
+
+.bottomBorder {
+    border-bottom: 1px solid black;
+}
+
+.authSign {
+    text-align: right;
+    font-style: italic;
+}
+
+.bottomText {
+    font-size: 1.5em;
+    font-weight: 600;
+    text-align: right;
+    vertical-align: top;
+    padding-right: 10px;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+td:empty::after {
+    content: "\00a0";
+}
