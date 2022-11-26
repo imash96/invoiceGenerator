@@ -1,51 +1,53 @@
 @extends('layouts.app')
 
 @section('content')
-
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">Invoices</div>
-
-                    <div class="card-body">
-                        <a href="{{route('invoices.create')}}" class="btn btn-sm btn-primary">Create New Invoice</a>
-                        <br/> <br/>
-
-                        <table class="table table-responsive-sm">
-                            <thead>
-                                <th>Invoice Number</th>
-                                <th>Client Name</th>
-                                <th>Amount</th>
-                                <th>Balance</th>
-                                <th>Due Date</th>
-                                <th>Status</th>
-                                <th></th>
-                            </thead>
-                            <tbody>
-                            @forelse($invoices as $invoice)
-
-                                <tr>
-                                    <td>{{$invoice->invoice_number}}</td>
-                                    <td>{{$invoice->client->first_name}} {{$invoice->client->last_name}}</td>
-                                    <td>${{number_format($invoice->amount, 2)}}</td>
-                                    <td>${{number_format($invoice->balance, 2)}}</td>
-                                    <td>  <?php if ($invoice->due_date ==! null) echo date("F d, Y", strtotime($invoice->due_date));?></td>
-                                    <td><span class="label label-success">{{$invoice->status}}</span></td>
-                                    <td> <a href="{{ route('invoices.edit', $invoice->id) }}" class="btn btn-sm btn-primary">View</a>
-                                    </td>
-                                </tr>
-
-                            @empty
-                                <tr>
-                                    <td colspan="2">No records found</td>
-                                </tr>
-                            @endforelse
-                            </tbody>
-                        </table>
+        <div class="row align-items-center p-3 text-white bg-purple rounded shadow-sm">
+            <div class="col-6 d-flex align-items-center">
+                <i class="bi bi-receipt me-2" style=" font-size: 2.5em; "></i></i><span class="fs-3 fw-bold">Invoices</span>
+            </div>
+            <div class="col-6">
+                <a class="btn btn-primary d-inline-block float-end ms-4" href="{{ route('invoices.create') }}"
+                    role="button">Create new</a>
+            </div>
+        </div>
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+            @forelse($invoices as $invoice)
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                        <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-{{ $invoice->id }}" aria-expanded="false"
+                            aria-controls="flush-{{ $invoice->id }}">
+                            Invoice no: {{ $invoice->invoice_number }}
+                        </button>
+                    </h2>
+                    <div id="flush-{{ $invoice->id }}" class="accordion-collapse collapse"
+                        aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                        <div class="row accordion-body">
+                            <div class="col-sm-8 ps-4">
+                                <code>Client Name: </code>{{ $invoice->client->first_name }} {{ $invoice->client->last_name }}<br>
+                                <code>Invoice amount: </code>${{number_format($invoice->amount, 2)}}<br>
+                                <code>Invoice date: </code><?php if ($invoice->invoice_date ==! null) echo date("d M, Y", strtotime($invoice->invoice_date));?><br>
+                                <code>Status: </code>{{$invoice->status}}<br>
+                            </div>
+                            <div class="col-sm-4 mt-2">
+                                <div class="row align-items-center">
+                                    <div class="vstack gap-2 col-sm-4 mx-3">
+                                        <a role="button" class="btn btn-secondary" href="{{ route('invoices.show', $invoice->id) }}">View details</a>
+                                        <a role="button" class="btn btn-outline-secondary" href="{{ route('invoices.edit', $invoice->id) }}">Edit invoice</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            @empty
+                <div class="row bg-light p-3">
+                    <div class="col-sm-12">
+                        No records found
+                    </div>
+                </div>
+            @endforelse
         </div>
     </div>
 @endsection

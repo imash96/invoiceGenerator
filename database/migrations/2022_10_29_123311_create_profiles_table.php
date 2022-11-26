@@ -24,8 +24,9 @@ return new class extends Migration
             $table->string('business_email')->nullable();
             $table->string('business_phone_number')->nullable();
             $table->string('business_website')->nullable();
-            $table->string('header_img')->nullable();
+            $table->string('business_header_img')->nullable();
             $table->string('business_logo')->nullable();
+            $table->string('business_gstin')->nullable();
             $table->timestamps();
         });
     }

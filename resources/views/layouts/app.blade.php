@@ -10,8 +10,21 @@
     <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <style>
+        body {
+            background: url({{ asset('/images/bg.jpg') }}) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+        .cover-container {
+            max-width: 55em;
+            margin-top: 5em;
+        }
+
         .nav-scroller {
             position: relative;
             z-index: 2;
@@ -42,6 +55,39 @@
 
         .card {
             --bs-card-spacer-y: 0.5rem;
+        }
+
+
+        td:empty::after {
+            content: "\00a0";
+        }
+
+        .thanks {
+            font-size: 2em;
+            margin-bottom: 1em;
+        }
+
+        .notices {
+            padding-left: 6px;
+            border-left: 6px solid #3989c6;
+            margin-bottom: 1em;
+        }
+
+        .notices .notice {
+            font-size: 1.2em
+        }
+
+        footer {
+            bottom: 10px;
+            page-break-after: always
+        }
+
+        footer {
+            width: 100%;
+            text-align: center;
+            color: #777;
+            border-top: 1px solid #aaa;
+            padding: 8px 0
         }
     </style>
 </head>

@@ -15,12 +15,12 @@ class Clients extends Model
 
     public function invoices()
     {
-        return $this->hasMany('App\Models\Invoices');
+        return $this->hasMany('App\Models\Invoices', 'client_id', 'id');
 
     }
     public function payments()
     {
-        return $this->hasMany('App\Models\Payments');
+        return $this->hasMany('App\Models\Payments', 'client_id', 'id');
 
     }
 }

@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
+            $table->string('gstin')->nullable()->unique();
             $table->string('business_name')->nullable();
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
@@ -25,7 +26,6 @@ return new class extends Migration
             $table->string('address_city')->nullable();
             $table->string('address_state')->nullable();
             $table->string('address_zipcode')->nullable();
-            $table->longText('private_notes')->nullable();
             $table->timestamps();
         });
     }

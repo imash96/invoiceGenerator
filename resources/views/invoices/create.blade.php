@@ -4,7 +4,7 @@
 
     <form method="POST" action="{{route('invoices.store')}}">
     <div class="container">
-        <h1>Create Invoice</h1>
+        <h1 class="text-light">Create Invoice</h1>
         <div class="row" style="padding-top: 10px">
             <div class="col-md-12">
                 <div class="card">
@@ -20,18 +20,9 @@
                             @endforelse
                         </select>
                             Invoice Number:
-                            <input type="text" name="invoice_number" value="0000{{$client->invoices->count()+1}}" class="form-control"/>
+                            <input type="text" name="invoice_number" value="0001" class="form-control"/>
                             Invoice Date:
                             <input type="date" name="invoice_date" value="{{ date('Y-m-d') }}" class="form-control"/>
-                            Due Date:
-                            <input type="date" name="due_date" class="form-control"/>
-                            <input type="text" name="discount" class="form-control" hidden/>
-                        <select class="form-control" id="discount_type" name="discount_type" hidden>
-                      <option value="Amount">Amount</option>
-                            <option value="Percent">Percent</option>
-                        </select>
-                            Private Notes:
-                            <textarea name="private_notes" class="form-control"></textarea>
                         <br>
                         <input type="submit" value="Save" class="btn btn-primary">
                     </div>

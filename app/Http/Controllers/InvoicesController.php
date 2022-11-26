@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Invoices;
 use App\Models\Clients;
+use App\Models\Profile;
 use Illuminate\Http\Request;
 
 class InvoicesController extends Controller
@@ -51,12 +52,12 @@ class InvoicesController extends Controller
      * @param  \App\Models\Invoices  $invoices
      * @return \Illuminate\Http\Response
      */
-    public function show(Invoices $invoices)
+    public function show(Invoices $invoices, $id)
     {
         //
-        $invoice = Invoice::findorfail($id);
+        $invoice = Invoices::findorfail($id);
         $profile = Profile::findorfail(1);
-        return view('invoices.view_invoice', ['invoice' => $invoice, 'profile' => $profile]);
+        return view('invoices.show', ['invoice' => $invoice, 'profile' => $profile]);
     }
 
     /**
@@ -65,9 +66,11 @@ class InvoicesController extends Controller
      * @param  \App\Models\Invoices  $invoices
      * @return \Illuminate\Http\Response
      */
-    public function edit(Invoices $invoices)
+    public function edit(Invoices $invoices, $id)
     {
         //
+        $invoice = Invoices::findorfail($id);
+        return view('invoices.edit', ['invoice' => $invoice]);
     }
 
     /**

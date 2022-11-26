@@ -15,19 +15,19 @@ return new class extends Migration
     {
         Schema::create('invoices', function (Blueprint $table) {
             $table->id();
-            $table->string('invoice_number');
+            $table->string('invoice_number')->unique();
             $table->string('invoice_date');
-            $table->string('po_id')->nullable();
+            $table->string('pos_id')->nullable();
             $table->string('challan_number')->nullable();
             $table->string('lr_number')->nullable();
             $table->string('ewaybill_number')->nullable();
             $table->string('pace_of_supply')->nullable();
             $table->string('client_id');
-            $table->text('product')->nullable();
+            $table->text('products')->nullable();
             $table->string('gst_type')->default('sgst');
-            $table->integer('freight_charges');
-            $table->integer('insurance_charges');
-            $table->integer('packnforward_charges');
+            $table->integer('freight_charges')->default(0);
+            $table->integer('insurance_charges')->default(0);
+            $table->integer('packnforward_charges')->default(0);
             $table->integer('amount')->nullable();
             $table->integer('balance')->default('0');
             $table->string('due_date')->nullable();

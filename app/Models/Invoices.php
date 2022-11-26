@@ -9,22 +9,24 @@ class Invoices extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['client_id', 'invoice_number', 'invoice_date', 'po_number', 'amount', 'balance', 'due_date', 
-        'deposit_amount','discount', 'discount_type','private_notes','status'
+    protected $fillable = [
+        'invoice_number', 'invoice_date', 'pos_id', 'challan_number', 'lr_number', 'ewaybill_number', 'pace_of_supply', 'client_id',
+        'products', 'gst_type', 'freight_charges', 'insurance_charges', 'packnforward_charges', 'amount', 'balance', 'due_date',
+        'deposit_amount', 'status'
     ];
+
     public function client()
     {
-        return $this->belongsTo('App\Models\Clients');
-
+        return $this->belongsTo('App\Models\Clients', 'client_id', 'id');
     }
+
     public function products()
     {
-        return $this->hasMany('App\Models\Products');
-
+        return $this->hasMany('App\Models\Products', 'id');
     }
+
     public function payments()
     {
-        return $this->hasMany('App\Models\Payments');
-
+        return $this->hasMany('App\Models\Payments', 'id');
     }
 }

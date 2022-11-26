@@ -9,14 +9,14 @@ class Products extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['invoice_id',
+    protected $fillable = [
+        'invoice_id',
         'item_name', 'item_description', 'unit_cost',
-        'quantity','line_total',
+        'quantity', 'line_total',
     ];
 
     public function invoice()
     {
         return $this->belongsTo('App\Models\Invoices');
-
     }
 }

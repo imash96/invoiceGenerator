@@ -39,6 +39,8 @@ class ClientsController extends Controller
     public function store(Request $request)
     {
         //
+        Clients::create($request->all());
+        return redirect()->route('clients.index');
     }
 
     /**
@@ -47,11 +49,12 @@ class ClientsController extends Controller
      * @param  \App\Models\Clients  $clients
      * @return \Illuminate\Http\Response
      */
-    public function show(Clients $clients)
+    public function show(Clients $clients, $id)
     {
         //
-        Clients::create($request->all());
-        return redirect()->route('clients.index');
+        $client = Clients::findorfail($id);
+        //dd($client);
+        return view('clients.show', ['client' => $client]);
     }
 
     /**

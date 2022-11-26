@@ -1,21 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <style>
-        body {
-            background: url(images/bg.jpg) no-repeat center center fixed;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-        }
-
-        .cover-container {
-            max-width: 55em;
-            margin-top: 5em;
-        }
-    </style>
-
     <body class="text-center">
 
         <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">

@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class POs extends Model
 {
     use HasFactory;
+
+    protected $primaryKey = 'pos_number';
 }
